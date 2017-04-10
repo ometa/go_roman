@@ -1,7 +1,5 @@
 package roman
 
-import "fmt"
-
 //import "fmt"
 
 // allow conversion from int to roman numeral string
@@ -11,9 +9,16 @@ import "fmt"
 // must go up to integer 100
 // bonus: allow mathmatical functions on roman numerals
 
-//	Symbol	I	V	X	L	C	D	M
-//	Value	1	5	10	50	100	500	1,000
+/*
+Symbol	I	V	X	L	C	D	M
+Value	1	5	10	50	100	500	1,000
 
+In a few specific cases, to avoid four characters being repeated in succession (such as IIII or XXXX),
+subtractive notation is used: as in this table:
+
+Number		4	9	40	90	400	900
+Notation	IV	IX	XL	XC	CD	CM
+ */
 
 const (
 	iM = 1000
@@ -35,7 +40,6 @@ const (
 
 // TODO: turn string into rune
 func printNumerals(char string, freq int) string {
-
 	//fmt.Println(fmt.Sprintf("printing %s %d times", char, freq))
 
 	out := ""
@@ -46,8 +50,6 @@ func printNumerals(char string, freq int) string {
 }
 
 func To(in int) string {
-
-
 	//fmt.Println(fmt.Sprintf("processing %s", in))
 
 	if m := in / iM; m > 0 {
@@ -67,14 +69,9 @@ func To(in int) string {
 	}
 
 	return ""
-
 }
 
 func From(in string) int {
 	out := 0
 	return out
-}
-
-func main() {
-	fmt.Println(To(199))
 }
